@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
-
+const port = 80
 app.use(express.json());
 app.use(cors({credentials: true, origin: true}));
 
@@ -14,7 +14,7 @@ app.all("/", (req, res) => {
   res.send("Bot is running!")
 })
 
-app.listen(3001, function() {
+app.listen(process.env.PORT || port, function() {
 
     console.log("express server is running")
 })
